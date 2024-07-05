@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+button.btn-detalle.text-xs.font-bold.uppercase.rounded.mt-2 {
+    background: red;
+    padding: 0.7rem;
+    color: #fff;
+    font-weight: bold;
+}
