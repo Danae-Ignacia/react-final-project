@@ -1,5 +1,5 @@
 import { useState,useEffect } from 'react';
-import Form from './Form';
+import Formulario from './Formulario';
 
 const Checkout = () => {
 
@@ -8,9 +8,8 @@ const Checkout = () => {
     const [email, setEmail] = useState('');
     const [confirmEmail, setConfirmEmail] = useState('');
     const [emailError, setEmailError] = useState('');
-    const [isFormComplete, setIsFormComplete] = useState(false);
+    const [isFormularioComplete, setIsFormularioComplete] = useState(false);
 
-//Estas dos funciones verifican entre si que los emails coincidan, y si no lo hacen, muestran en pantalla un aviso de error.
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
     if (confirmEmail && e.target.value !== confirmEmail) {
@@ -38,11 +37,10 @@ const Checkout = () => {
   };
 
   const handlePhoneInput = (e) => {
-    const value = e.target.value.replace(/\D/g, ''); // Remueve todos los caracteres no numéricos
-    e.target.value = value;
+    const value = e.target.value.replace(/\D/g, '');
   };
 
-  //Evita que se recargue la pagina luego de apretar el boton, esto evita que tengamos errores y se borre el form entero.
+  //Evita que se recargue la pagina luego de apretar el boton, esto evita que tengamos errores y se borre el Formulario entero.
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -51,21 +49,21 @@ const Checkout = () => {
   useEffect(() => {
     // Verifica si todos los campos están llenos y no hay errores de email
     if (email && confirmEmail && !emailError) {
-      setIsFormComplete(true);
+      setIsFormularioComplete(true);
     } else {
-      setIsFormComplete(false);
+      setIsFormularioComplete(false);
     }
   }, [email, confirmEmail, emailError]);
 
   return (
     <>
-      <Form
+      <Formulario
       name={name}
       phone={phone}
       email={email}
       confirmEmail={confirmEmail}
       emailError={emailError}
-      isFormComplete={isFormComplete}
+      isFormularioComplete={isFormularioComplete}
       handleEmailChange={handleEmailChange}
       handleConfirmEmailChange={handleConfirmEmailChange}
       handlePhoneInput={handlePhoneInput}

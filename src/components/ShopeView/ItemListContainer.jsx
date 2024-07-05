@@ -14,7 +14,7 @@ const ItemListContainer = () => {
   const { idCategory } = useParams();
   const [loading, setLoading] = useState(true);
 
-//Trae los productos de firebase, pero renderiza los productos dependiendo su ID de categoria
+
   useEffect(() => {
     setLoading(true);
     (idCategory ? getCategory(idCategory) : getProducts())
@@ -36,10 +36,10 @@ const ItemListContainer = () => {
           {loading ? (
         <ThreeDots
           type="Puff"
-          color="#00BFFF"
+          color="#f0e11a"
           height={100}
           width={100}
-          timeout={3000} //3 secs
+          timeout={2500} 
         />
       ) : (
         <ItemList productos = {productos}/>

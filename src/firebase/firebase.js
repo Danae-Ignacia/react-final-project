@@ -24,18 +24,16 @@ const dataBase = getFirestore(app);
 
 //Esta funcion llama a los productos
 export async function getProducts(){
-    //En get docs debemos especificar que queremos acceder a la base de datos, péro tambien a la coleccion, llamando a la db y luego colocando el nombre de la coleccion que se encuentra dentro.
     const response = await getDocs(collection(dataBase,"products"));
     
      //response es un QuerySnapShot - es iterable
     const listaProductos=[];
     response.forEach((documentos) => listaProductos.push({id: documentos.id,  ...documentos.data()}));
- //Este forEach trae toda la informacion haciendo un push al array de listaProductos, en firebase el id esta aparte de la coleccion, asi que traemos primero el id y luego los demas datos con un spread operator.
     return listaProductos;
 }
 
 
-//Funcion que itera los productos dependiendo su categoria.
+//Funcion que itera los productos por categoria.
 export async function getCategory(category){
     const response = await getDocs(collection(dataBase,"products"));
     const listaProductos=[];
@@ -47,7 +45,7 @@ export async function getCategory(category){
     return listaProductos;
 }
 
-//Funcion que permite agregar datos a la base de datos de firebase.
+//Funcion que agrega info a la base de firebase.
 export async function addOrder(order){
     const ordersCollections = collection(dataBase, "orders");
     const docRef = await addDoc(ordersCollections, order);

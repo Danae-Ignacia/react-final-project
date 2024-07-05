@@ -13,14 +13,13 @@ const AddOrder = ({ name, phone, email, disabled }) => {
     const [orderId, setOrderId] = useState(null);
     const navigate = useNavigate();
 
-    //Funcion que calcula producto, impuesto, envio, sub total y total.
+    //Funcion que calcula producto, IVA (19%), envio, sub total y total.
     const handleClick = () => {
     const subtotal = cart.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
-    const impuestos = subtotal * 0.19;
+    const iva = subtotal * 0.19;
     const envio = 2000; 
-    const total = subtotal + impuestos + envio;
+    const total = subtotal + iva + envio;
 
-    //La plantilla que se enviara a Firebase
         const newOrder = {
             buyer: {
                 name: name,
@@ -36,10 +35,9 @@ const AddOrder = ({ name, phone, email, disabled }) => {
             total: total
         };
 
-        // Agregar la nueva orden a Firebase y luego enviar al usuario a ver su ID de orden.
         addOrder(newOrder).then(id => {
             setOrderId(id);
-            clearCart(); // Limpia el carrito después de que la orden ha sido generada
+            clearCart(); 
             navigate(`/FinishedOrder/${id}`);
         });
     };

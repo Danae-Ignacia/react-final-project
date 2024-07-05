@@ -26,7 +26,7 @@ return (
             <div className="flex justify-center items-center h-screen">
             <ThreeDots
               type="Puff"
-              color="#00BFFF"
+              color="#f0e11a"
               height={100}
               width={100}
               timeout={3000}
@@ -48,7 +48,7 @@ return (
         <div className="px-6 pt-4 pb-5">
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2 mb-5">Precio: {productos.price}</span>
             <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black mr-2 mb-5">Categoria: {productos.category}</span>
-            {/* El contador de los objetos para agregar de 1 a mas. */}
+            {}
             {productos && <ItemCount producto={productos} />}
         </div>
     </div>

@@ -7,23 +7,20 @@ import { useNavigate } from 'react-router-dom';
 const Cart = () => {
     const { cart, removeFromCart, clearCart } = useContext(CartContext);
 
-    //Todos los productos que agreguemos al carrito, estaran en el LocalStorage
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
     }, [cart]);
 
-    //Funcion que remueve el producto por ID
+
     const handleRemove = (productId) => {
         removeFromCart(productId);
     };
 
-    //Calculo de los productos
     const subtotal = cart.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
     const impuestos = subtotal * 0.19;
     const envio = 2000; 
     const total = subtotal + impuestos + envio;
 
-    //Funcion en dondew se usa un hook de ReactRouterDom, en donde si no hay productos en el carrito, muestre un error, y si el carrito tiene productos, me envie al checkout
     const navigate = useNavigate();
 
     const handleCheckout = () => {
@@ -75,7 +72,7 @@ const Cart = () => {
                                 </tbody>
                             </table>
 
-                                        {/* Aqui generamos el boton de limpiar todo el carrito, cuando haya productos, si no, desaparece.*/}
+                                        {}
                             {cart.length > 0 && (
                                 <button 
                                     onClick={clearCart} 
@@ -86,7 +83,7 @@ const Cart = () => {
                         </div>
                     </div>
 
-                            {/* Estuve leyendo que en los ecommerce se utiliza el toFixed para representar el dinero en dos decimales.*/}
+                            {}
                     <div className="md:w-1/4">
                 <div className="bg-white rounded-lg shadow-md p-6">
                     <h2 className="text-lg font-semibold mb-4">Tu compra</h2>
