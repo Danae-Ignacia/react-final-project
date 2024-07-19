@@ -84,7 +84,7 @@ const Form = ({ email, confirmEmail, emailError, isFormComplete, handleEmailChan
             {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
           </div>
 
-          {/* Si el formulario esta completo y no tiene errores, generara el boton.  */}
+          {}
           
           {isFormComplete ? <AddOrder name={name} phone={phone} email={email} /> : null}
           

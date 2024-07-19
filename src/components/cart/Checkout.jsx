@@ -40,14 +40,13 @@ const Checkout = () => {
     const value = e.target.value.replace(/\D/g, '');
   };
 
-  //Evita que se recargue la pagina luego de apretar el boton, esto evita que tengamos errores y se borre el Formulario entero.
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
 
   useEffect(() => {
-    // Verifica si todos los campos están llenos y no hay errores de email
+    // Verifica si todos los campos están llenos y no hay errores
     if (email && confirmEmail && !emailError) {
       setIsFormularioComplete(true);
     } else {

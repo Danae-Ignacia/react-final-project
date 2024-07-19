@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ItemDetailContainer = ({title, price, description, image, id}) => {
+const ItemDetailContainer = ({title, price, description, image, stock, id}) => {
 
   return (
     <div className="py-6">
@@ -12,6 +12,7 @@ const ItemDetailContainer = ({title, price, description, image, id}) => {
                 <div className="w-2/3 p-4">
                   <h1 className="text-gray-900 font-bold text-2xl">{title}</h1>
                   <p className="mt-2 text-gray-600 text-sm">{description}</p>
+                  <p className="mt-2 color_red font-bold text-m">Stock: {stock}</p>
                 <div className="flex items-center mt-2">
                 </div>
                 <div className="block items-center justify-between mt-3">
