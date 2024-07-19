@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import { ThreeDots } from "react-loader-spinner";
+import SlideComponent from "./SlideComponent";
 
 
 
@@ -28,6 +29,7 @@ const ItemListContainer = () => {
   return (
 
     <>
+            <SlideComponent />
     <div className="container mx-auto"> 
     <h1 className='m-10 text-center text-white text-4xl font-bold'>Nuestros Productos</h1>
     <div className="flex items-center justify-center flex-wrap w-full h-full text-left pt-15 mt-20 gap-5">

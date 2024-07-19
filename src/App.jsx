@@ -8,14 +8,12 @@ import Checkout from './components/cart/Checkout'
 import FinishedOrder from './components/cart/FinishedOrder'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify'
-import SlideComponent from './components/ShopeView/SlideComponent'
 import './App.css';
 
 function App() {
   return (
     <BrowserRouter>
         <NavBar />
-        <SlideComponent />
         <ToastContainer
           position="bottom-left"
           autoClose={5000}
